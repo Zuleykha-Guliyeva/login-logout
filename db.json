@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "username1",
+      "email": "email1@gmail.com",
+      "phone": "12456235",
+      "password": "454fewwef4we45564"
+    },
+    {
+      "id": 2,
+      "username": "username2",
+      "email": "email2@gmail.com",
+      "phone": "463324545434",
+      "password": "454fewwef4we45564"
+    },
+    {
+      "id": 3,
+      "username": "username3",
+      "email": "email3@gmail.com",
+      "phone": "666312323",
+      "password": "454fewwef4we45564"
+    },
+    {
+      "id": 4,
+      "username": "username4",
+      "email": "email4@gmail.com",
+      "phone": "78875455564",
+      "password": "454fewwef4we45564"
+    },
+    {
+      "email": "necesen@gmail.com",
+      "username": "twtwtwt",
+      "phone": "wtwtwtw",
+      "password": "gssgsg",
+      "id": 5
+    },
+    {
+      "email": "fuadd@gmail.com",
+      "username": "twtwtwt",
+      "phone": "4545ds4545",
+      "password": "jjgjjjgeajj",
+      "id": 6
+    }
+  ]
+}

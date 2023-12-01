@@ -37,6 +37,8 @@ const colors = {
   BackgroundColor: "#c6c6c6",
   orColor: "#ABABAB",
   signUpColor: "#FFF4E3",
+  //components
+  toastDefaultColor: "#3B3F5C",
   //inputs
   inputBorderColor: "#bfc9d4",
   inputBorderFocusColor: "#4361ee",

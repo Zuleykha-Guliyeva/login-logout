@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IState } from "./store";
+import { IState, IUser } from "./store";
 import { az } from "../assets/lang/az";
 import { en } from "../assets/lang/en";
 import { ru } from "../assets/lang/ru";
@@ -52,9 +52,8 @@ export const rootSlice = createSlice({
         action.payload
       );
     },
-    setUser: (state: IState, action: PayloadAction<any>) => {
+    setUser: (state: IState, action: PayloadAction<IUser | null>) => {
       state.user = action.payload;
-      state.user = "user";
     },
   },
 });

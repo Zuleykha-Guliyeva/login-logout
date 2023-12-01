@@ -1,20 +1,21 @@
 import axiosInstance from "../../../core/configs/axios.config";
 import { setToken } from "../../../core/helpers/get-token";
+import { IUser } from "../../../store/store";
 import { store } from "../../../store/store.config";
 import { setUser } from "../../../store/store.reducer";
 import { ILoginFormValues } from "../login";
 
-export const login = (credentials: ILoginFormValues): Promise<{ token: string; user: ILoginFormValues }> => {
+export const login = (credentials: ILoginFormValues): Promise<{ token: string; user: IUser }> => {
   const { email, password } = credentials;
   return axiosInstance
     .get("http://localhost:3000/users")
     .then((res) => {
-      const users: ILoginFormValues[] = res.data;
+      const users: IUser[] = res.data;
       console.log(users);
       
       const authUser = users.find(
-        (user: ILoginFormValues) =>
-          user.email === email && user.password === password
+        (user: IUser) =>
+          (user.email === email || user.username === email) && user.password === password
       );
       
       if (authUser) {

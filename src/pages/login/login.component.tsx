@@ -8,7 +8,7 @@ import { ILoginFormValues } from "./login";
 import { Link, useNavigate } from "react-router-dom";
 const LoginComponent = () => {
   const translate = useLocalization();
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const { mutate, isLoading } = useLogin();
 
   const {
@@ -24,6 +24,8 @@ const LoginComponent = () => {
     orClass,
     marginNone,
     signUpButtonColor,
+    signInButton,
+    signInButtonMobile,
   } = useLoginStyles();
   const initialValues: ILoginFormValues = {
     email: "",
@@ -35,11 +37,6 @@ const LoginComponent = () => {
         {
           required: true,
           message: translate("input_required"),
-        },
-        {
-          // add a pattern for email regex
-          pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-          message: translate("email_invalid"),
         },
       ],
       password: [
@@ -60,9 +57,8 @@ const LoginComponent = () => {
   );
 
   const handleSignUp = useCallback(() => {
-    navigate('/auth/signup');
-    console.log('jewhwehjwehwhhwf');
-    
+    navigate("/auth/signup");
+    console.log("jewhwehjwehwhhwf");
   }, [navigate]);
 
   return (
@@ -81,6 +77,14 @@ const LoginComponent = () => {
             onFinish={onSubmit}
             layout="vertical"
           >
+            <Button
+              className={`${signButon} ${signUpButtonColor} ${signInButtonMobile} w-100`}
+              type="link"
+              htmlType="button"
+              onClick={handleSignUp}
+            >
+              {translate("sign_up_button")}
+            </Button>
             <Form.Item
               rules={rules.email}
               name="email"
@@ -122,7 +126,7 @@ const LoginComponent = () => {
               </Button>
               <span className={orClass}> OR </span>
               <Button
-                className={`${signButon} ${signUpButtonColor} w-100`}
+                className={`${signButon} ${signUpButtonColor} ${signInButton} w-100`}
                 type="link"
                 htmlType="button"
                 onClick={handleSignUp}

@@ -11,13 +11,18 @@ const LoginComponent = () => {
   const translate = useLocalization();
   //   const navigate = useNavigate();
   const { mutate, isLoading } = useSignup();
-  const { title, subtitle, sigupMarginTop, accountSign, accountSpan } =
-    useSignupStyles();
+  const {
+    title,
+    subtitle,
+    sigupMarginTop,
+    accountSign,
+    accountSpan,
+    inputLabel,
+  } = useSignupStyles();
   const {
     page,
     panel,
     panelCard,
-    inputLabel,
     inputClass,
     signButon,
     marginNone,
@@ -163,3 +168,6 @@ const LoginComponent = () => {
 };
 
 export default LoginComponent;
+
+
+

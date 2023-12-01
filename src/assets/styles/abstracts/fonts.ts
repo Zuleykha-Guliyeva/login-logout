@@ -1,5 +1,5 @@
 const fonts = {
-  font: "Poppins, sans-serif",
+  font: "Poppins Regular",
   fontBold: "Poppins Bold",
   fontMedium: "Poppins Medium",
   fontLight: "Poppins Light",

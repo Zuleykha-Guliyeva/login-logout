@@ -5,7 +5,6 @@ import { IAuthProtectedRouteProps } from "./auth-protected";
 import { useEffect } from "react";
 import { getToken } from "../../core/helpers/get-token";
 import { setUser } from "../../store/store.reducer";
-// import { environment } from "../../core/configs/app.config";
 const AuthProtectedComponent = ({
   children,
   layout = "public",
@@ -13,12 +12,11 @@ const AuthProtectedComponent = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = getToken();
-    // localStorage.removeItem(`${environment.applicationName}-token`);
+    const token: any | null = getToken();
     if (token) {
       dispatch(setUser(token));
     }
-  }, []);
+  }, [dispatch]);
   switch (layout) {
     case "auth":
       return getToken() ? <Navigate to={Routes.userdetails} replace /> : children;

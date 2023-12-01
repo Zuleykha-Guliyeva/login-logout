@@ -42,3 +42,6 @@ export const infoToast = (mes: string) => {
         }
     );
 };
+
+
+

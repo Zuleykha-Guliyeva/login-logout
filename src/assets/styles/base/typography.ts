@@ -1,34 +1,34 @@
-import nunitoBold from '../../fonts/Nunito/NunitoSans-Bold.ttf';
-import nunitoLight from '../../fonts/Nunito/NunitoSans-Light.ttf';
-import nunitoSemiBold from '../../fonts/Nunito/NunitoSans-SemiBold.ttf';
-import nunitoRegular from '../../fonts/Nunito/NunitoSans-Regular.ttf';
-import nunitoThin from '../../fonts/Nunito/NunitoSans-ExtraLight.ttf';
-import nunitoXBlack from '../../fonts/Nunito/NunitoSans-ExtraBold.ttf';
+import poppinsBold from '../../fonts/Poppins/Poppins-Bold.ttf';
+import poppinsLight from "../../fonts/Poppins/Poppins-Light.ttf";
+import poppinsSemiBold from "../../fonts/Poppins/Poppins-SemiBold.ttf";
+import poppinsRegular from "../../fonts/Poppins/Poppins-Regular.ttf";
+import poppinsThin from "../../fonts/Poppins/Poppins-Thin.ttf";
+import poppinsXBlack from "../../fonts/Poppins/Poppins-Black.ttf";
 const typography = {
   '@font-face': [
     {
-      fontFamily: 'Nunito Bold',
-      src: `url("${nunitoBold}")`,
+      fontFamily: 'Poppins Bold',
+      src: `url("${poppinsBold}")`,
     },
     {
-      fontFamily: 'Nunito Light',
-      src: `url("${nunitoLight}")`,
+      fontFamily: 'Poppins Light',
+      src: `url("${poppinsLight}")`,
     },
     {
-      fontFamily: 'Nunito Medium',
-      src: `url("${nunitoSemiBold}")`,
+      fontFamily: 'Poppins Medium',
+      src: `url("${poppinsSemiBold}")`,
     },
     {
-      fontFamily: 'Nunito Regular',
-      src: `url("${nunitoRegular}")`,
+      fontFamily: 'Poppins Regular',
+      src: `url("${poppinsRegular}")`,
     },
     {
-      fontFamily: 'Nunito Thin',
-      src: `url("${nunitoThin}")`,
+      fontFamily: 'Poppins Thin',
+      src: `url("${poppinsThin}")`,
     },
     {
-      fontFamily: 'Nunito XBlack',
-      src: `url("${nunitoXBlack}")`,
+      fontFamily: 'Poppins XBlack',
+      src: `url("${poppinsXBlack}")`,
     }
   ],
 };

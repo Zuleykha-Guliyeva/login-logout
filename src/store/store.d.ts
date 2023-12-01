@@ -5,11 +5,18 @@ export interface IState {
   leftMenu: boolean;
   languages: ILanguages[];
   locale: any;
-  user: any | null;
+  user: IUser | null;
 }
 
 export interface ILanguages {
   id: number;
   key: ILang;
   value: string;
+}
+
+export interface IUser {
+  username: string;
+  email: string;
+  phone: string;
+  password:string;
 }

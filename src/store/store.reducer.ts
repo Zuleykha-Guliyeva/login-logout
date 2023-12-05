@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IState, IUser } from "./store";
+import { IState } from "./store";
 import { az } from "../assets/lang/az";
 import { en } from "../assets/lang/en";
 import { ru } from "../assets/lang/ru";
 import { environment } from "../core/configs/app.config";
 import { ILang } from "../assets/lang/lang";
+import { jwtDecode } from "../../node_modules/jwt-decode";
 
 const initialState: IState = {
   loader: false,
@@ -52,8 +53,8 @@ export const rootSlice = createSlice({
         action.payload
       );
     },
-    setUser: (state: IState, action: PayloadAction<IUser | null>) => {
-      state.user = action.payload;
+    setUser: (state: IState, action: PayloadAction<any | null>) => {
+      state.user = jwtDecode(action.payload);
     },
   },
 });

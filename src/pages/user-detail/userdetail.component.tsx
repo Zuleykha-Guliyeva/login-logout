@@ -1,21 +1,24 @@
 import { Button } from "antd";
 import { useUserdetailStyles } from "./userdetail.style";
-import { useCallback} from "react";
-import { environment } from "../../core/configs/app.config";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IState } from "../../store/store";
+import { environment } from "core/configs/app.config";
 
 function UserDetailComponent() {
   const navigate = useNavigate();
   const { page, logoutButton, title, userTitleColor } = useUserdetailStyles();
-  const user = useSelector((state:IState)=>state.user)
-  const handleLogout = useCallback(()=>{
+
+  const user = useSelector((state: IState) => state.user);
+  console.log(user);
+  
+ 
+  const handleLogout = useCallback(() => {
     localStorage.removeItem(`${environment.applicationName}-token`);
-    console.log('logout');
-    
-    navigate('/auth/login');
-  },[navigate])
+    navigate("/auth/login");
+  }, [navigate]);
+  
   return (
     <div className={`${page}`}>
       <div className="row">

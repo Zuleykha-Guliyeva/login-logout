@@ -1,34 +1,23 @@
+import { ILogin } from "core/layouts/auth/auth";
 import axiosInstance from "../../../core/configs/axios.config";
-import { setToken } from "../../../core/helpers/get-token";
-import { IUser } from "../../../store/store";
-import { store } from "../../../store/store.config";
-import { setUser } from "../../../store/store.reducer";
 import { ILoginFormValues } from "../login";
 
-export const login = (credentials: ILoginFormValues): Promise<{ token: string; user: IUser }> => {
+export const login = (credentials: ILoginFormValues): Promise<{ token: string; user: ILogin }> => {
   const { email, password } = credentials;
   return axiosInstance
     .get("http://localhost:3000/users")
     .then((res) => {
-      const users: IUser[] = res.data;
+      const users: ILogin[] = res.data;
       console.log(users);
-      
       const authUser = users.find(
-        (user: IUser) =>
-          (user.email === email || user.username === email) && user.password === password
-      );
-      
+        (user: ILogin) =>
+          (user.email === email || user.username === email) && user.password === password);
       if (authUser) {
-        const token = "tokenAuth new";
-        setToken(token);
-        store.dispatch(setUser(authUser));
+        const token =
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoxNTE2MjM5MDIyfQ.nlfVHr2Q5v0lnmInngKOyEl21d0nhI8cFiqP2C7P5xY";
         return Promise.resolve({ token, user: authUser });
       } else {
-        throw new Error("Invalid username or password");
+        throw new Error("Istifadəçi adı və ya parol yalnışdır!");
       }
     })
-    .catch((error) => {
-      console.error("Error fetching user data:", error);
-      throw new Error("Error fetching user data");
-    });
 };

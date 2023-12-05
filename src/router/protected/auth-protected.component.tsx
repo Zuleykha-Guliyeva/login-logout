@@ -10,9 +10,8 @@ const AuthProtectedComponent = ({
   layout = "public",
 }: IAuthProtectedRouteProps) => {
   const dispatch = useDispatch();
-
   useEffect(() => {
-    const token: any | null = getToken();
+    const token = getToken();
     if (token) {
       dispatch(setUser(token));
     }

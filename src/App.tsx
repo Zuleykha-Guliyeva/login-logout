@@ -1,5 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import "./App.scss";
 import useGlobalStyles from "./assets/styles/style";
 import router from "../src/router/router";
@@ -29,6 +30,7 @@ function App() {
           maxHeight: "80vh",
         }}
       />
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }

@@ -10,12 +10,19 @@ const styles = {
     margin: "0 auto",
     backgroundColor: colors.layoutBackground,
     position: "relative",
+    [breakpoint(768)]: {
+      width: "100%"
+    },
   },
   orangePanel: {
     backgroundColor: colors.orangeBackground,
     width: rem(731),
     height: "100vh",
-    [breakpoint(768)]: { width: "100%" },
+    [breakpoint(768)]: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    },
   },
 };
 

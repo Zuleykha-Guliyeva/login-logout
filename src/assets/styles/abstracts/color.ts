@@ -45,7 +45,7 @@ const colors = {
   inputTextColor: "#3b3f5c",
   inputFocusShadowColor: "rgb(194 213 255 / 62 %)",
   inputDark: "#515365",
-
+  forgotColor: "#AD3113",
   //loading
   loadingBackdropBgColor: "rgba(0,0,0,0.3)",
 };

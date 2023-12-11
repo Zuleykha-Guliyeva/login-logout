@@ -16,9 +16,9 @@ export const useLogin = () => {
         return login(credentials);
       },
       onSuccess: (response) => {
-        const { token } = response;
+        const { token, user, secretKey } = response;
         setToken(token);
-        store.dispatch(setUser(token));
+        store.dispatch(setUser({token,user,secretKey}));
         queryClient.invalidateQueries("users");        
         navigate(Routes.userdetails);
       },
@@ -27,6 +27,8 @@ export const useLogin = () => {
       },
     });
 };
+
+
 
 
 

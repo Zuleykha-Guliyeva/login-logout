@@ -12,19 +12,14 @@ const styles = {
     textAlign: "center",
     backgroundColor: colors.white,
     height: rem(741),
-    width: rem(1224),
+    width: "80%",
     borderRadius: rem(40),
     position: "absolute",
-    top: rem(90),
-    left: rem(113),
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     zIndex: "1",
     boxShadow: "0px 4px 35px 0px #00000014",
-    [breakpoint(768)]: {
-      width: rem(326),
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-    },
   },
   title: {
     fontWeight: 400,
@@ -33,7 +28,7 @@ const styles = {
     fontFamily: fonts.fontBold,
     [breakpoint(768)]: {
       fontSize: rem(40),
-      lineHeight: rem(60)
+      lineHeight: rem(60),
     },
   },
   userTitleColor: {

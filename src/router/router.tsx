@@ -5,7 +5,7 @@ import NotfoundComponent from "../pages/not-found/notfound.component";
 import AuthComponent from "../core/layouts/auth/auth.component";
 import UserDetailComponent from "../pages/user-detail/userdetail.component";
 import LoginComponent from "../pages/login/login.component";
-import PublicComponent from "../core/layouts/public.component";
+import PublicComponent from "../core/layouts/public/public.component";
 import SignupComponent from "../pages/signup/singup.component";
 
 const router = createBrowserRouter([

@@ -2,10 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IState } from "./store";
 import { az } from "../assets/lang/az";
 import { en } from "../assets/lang/en";
-import { ru } from "../assets/lang/ru";
 import { environment } from "../core/configs/app.config";
 import { ILang } from "../assets/lang/lang";
-import { jwtDecode } from "../../node_modules/jwt-decode";
+import { LoginUser } from "pages/login/models/login.model";
+import { getToken } from "core/helpers/get-token";
+import JWT from "expo-jwt";
 
 const initialState: IState = {
   loader: false,
@@ -30,7 +31,6 @@ const initialState: IState = {
   locale: az,
   user: null,
 };
-
 export const rootSlice = createSlice({
   name: "root",
   initialState,
@@ -45,7 +45,6 @@ export const rootSlice = createSlice({
       const lang = {
         az,
         en,
-        ru,
       };
       state.locale = lang[action.payload];
       localStorage.setItem(
@@ -54,7 +53,19 @@ export const rootSlice = createSlice({
       );
     },
     setUser: (state: IState, action: PayloadAction<any | null>) => {
-      state.user = jwtDecode(action.payload);
+      const storedSecretKey = localStorage.getItem("secretKey");
+      const token: string = getToken() || "";
+      if (storedSecretKey) {
+        const decodedToken = JWT.decode(token, storedSecretKey);
+        const decodeUser: LoginUser = decodedToken.authUser as LoginUser;
+        state.user = decodeUser;
+      } else {
+        const { secretKey } = action.payload;
+        if (secretKey) {
+          state.user = null;
+          localStorage.setItem("secretKey", secretKey);
+        }
+      }
     },
   },
 });

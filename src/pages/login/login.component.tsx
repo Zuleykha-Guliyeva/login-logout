@@ -6,6 +6,8 @@ import { FormRule } from "antd";
 import { useLogin } from "./actions/login.mutation";
 import { ILoginFormValues } from "./login";
 import { Link, useNavigate } from "react-router-dom";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { Routes } from "router/routes";
 const LoginComponent = () => {
   const translate = useLocalization();
   const navigate = useNavigate();
@@ -26,6 +28,8 @@ const LoginComponent = () => {
     signUpButtonColor,
     signInButton,
     signInButtonMobile,
+    eyeIcon,
+    subtitleSite,
   } = useLoginStyles();
   const initialValues: ILoginFormValues = {
     email: "",
@@ -57,8 +61,7 @@ const LoginComponent = () => {
   );
 
   const handleSignUp = useCallback(() => {
-    navigate("/auth/signup");
-    console.log("jewhwehjwehwhhwf");
+    navigate(Routes.signup);
   }, [navigate]);
 
   return (
@@ -67,7 +70,10 @@ const LoginComponent = () => {
         <Card className={panelCard}>
           <div className="">
             <div className="text-center">
-              <p className={subtitle}>{translate("login_subtitle")}</p>
+              <p className={subtitle}>
+                {translate("login_subtitle")}
+                <span className={subtitleSite}> {translate("login_site")}</span>
+              </p>
               <h1 className={title}>{translate("login_title")}</h1>
             </div>
           </div>
@@ -89,21 +95,21 @@ const LoginComponent = () => {
               rules={rules.email}
               name="email"
               label={
-                <span className={inputLabel}>
-                  Enter your username or email address
-                </span>
+                <span className={inputLabel}>{translate("userEmail")}</span>
               }
             >
               <Input
                 className={inputClass}
-                placeholder="Enter your username or email address"
+                placeholder={translate("enterEmail")}
               />
             </Form.Item>
             <Form.Item
               className={marginNone}
               rules={rules.password}
               name="password"
-              label={<span className={inputLabel}>Enter your Password</span>}
+              label={
+                <span className={inputLabel}>{translate("password")}</span>
+              }
             >
               <Input
                 type="password"
@@ -111,9 +117,12 @@ const LoginComponent = () => {
                 placeholder="Your Password"
               />
             </Form.Item>
-            <div style={{ textAlign: "right" }}>
-              <Link to="/" className={forgotClass}>
-                Forgot Password
+            <span className={eyeIcon}>
+              <MdOutlineRemoveRedEye />
+            </span>
+            <div className="text-right">
+              <Link to={Routes.default} className={forgotClass}>
+                {translate("forgotPass")}
               </Link>
             </div>
             <div>
@@ -124,7 +133,7 @@ const LoginComponent = () => {
               >
                 {translate("login_sign_in_button")}
               </Button>
-              <span className={orClass}> OR </span>
+              <span className={orClass}> {translate("or")} </span>
               <Button
                 className={`${signButon} ${signUpButtonColor} ${signInButton} w-100`}
                 type="link"

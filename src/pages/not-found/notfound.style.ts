@@ -6,7 +6,7 @@ import { breakpoint } from "../../assets/styles/abstracts/mixins";
 const styles = {
   page: {
     height: rem(450),
-    width: rem(900),
+    width: "80%",
     display: "flex",
     backgroundColor: colors.white,
     justifyContent: "center",

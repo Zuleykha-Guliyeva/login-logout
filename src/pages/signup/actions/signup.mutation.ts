@@ -3,6 +3,8 @@ import { ISignupFormValues } from "../signup";
 import { signup } from "./signup.service";
 import { useNavigate } from "react-router-dom";
 import { errorToast, successToast } from "../../../core/shared/toast/toast";
+import { Routes } from "router/routes";
+
 export const useSignup = () => {
   const navigate = useNavigate();
   return useMutation({
@@ -11,11 +13,11 @@ export const useSignup = () => {
     },
     onSuccess: () => {
       successToast;
-      navigate("/auth/login");
+      navigate(`${Routes.login}`);
     },
     onError: (error: Error) => {
       errorToast(error.message);
-      navigate("/auth/signup");
+      navigate(`${Routes.signup}`);
     },
   });
 };

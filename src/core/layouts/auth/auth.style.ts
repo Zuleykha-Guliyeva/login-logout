@@ -6,36 +6,28 @@ import { breakpoint } from '../../../assets/styles/abstracts/mixins';
 
 const styles = {
   auth: {
-    width: rem(1400),
-    height: "100vh",
-    margin: "0 auto",
-    backgroundColor: colors.layoutBackground,
+    width: "100%",
+    display: "flex",
     position: "relative",
-    [breakpoint(768)]: {
-      width: "100%",
-      display: "flex",
-      justifyContent: "center",
-    },
+    backgroundColor: colors.layoutBackground,
   },
   orangePanel: {
+    position: "relative",
     backgroundColor: colors.orangeBackground,
-    width: rem(731),
+    width: "50%",
     height: "100vh",
-    [breakpoint(768)]: { width: rem(375) },
+    [breakpoint(768)]: { width: "100%" },
   },
-  orangeImg: {
+  orangeImgPanel: {
     position: "absolute",
-    left: rem(181),
-    top: rem(220),
+    left: "25%",
+    top: "25%",
     [breakpoint(768)]: { display: "none" },
   },
-  lightPanel: {
-    padding: 0,
-  },
-  lightImg: {
+  lightImgPanel: {
     position: "absolute",
-    top: rem(164),
-    right: rem(61),
+    top: rem(225),
+    right: '7%',
     [breakpoint(768)]: { display: "none" },
   },
   orangeLogo: {
@@ -52,6 +44,8 @@ const styles = {
     marginLeft: rem(42),
     [breakpoint(768)]: {
       fontSize: rem(18),
+      marginTop: rem(18),
+      paddingBottom: rem(33)
     },
   },
 };

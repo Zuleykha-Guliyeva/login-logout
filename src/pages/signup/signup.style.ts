@@ -52,6 +52,11 @@ const styles = {
     linHeight: rem(24),
     [breakpoint(768)]: { fontSize: rem(11), width: "100%" },
   },
+  formField50: {
+    display: "inline-block",
+    width: "calc(50% - 10px)",
+  },
+  margin19: {marginRight: rem(19)}
 };
 
 export const useSignupStyles = createUseStyles(styles);

@@ -7,9 +7,10 @@ import { useSignupStyles } from "./signup.style";
 import { ISignupFormValues } from "./signup";
 import { Link } from "react-router-dom";
 import { useSignup } from "./actions/signup.mutation";
+import { Routes } from "router/routes";
+
 const LoginComponent = () => {
   const translate = useLocalization();
-  //   const navigate = useNavigate();
   const { mutate, isLoading } = useSignup();
   const {
     title,
@@ -18,6 +19,8 @@ const LoginComponent = () => {
     accountSign,
     accountSpan,
     inputLabel,
+    formField50,
+    margin19
   } = useSignupStyles();
   const {
     page,
@@ -27,6 +30,7 @@ const LoginComponent = () => {
     signButon,
     marginNone,
     inputClass50,
+    subtitleSite,
   } = useLoginStyles();
 
   const initialValues: ISignupFormValues = {
@@ -44,7 +48,6 @@ const LoginComponent = () => {
           message: translate("input_required"),
         },
         {
-          // add a pattern for email regex
           pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
           message: translate("email_invalid"),
         },
@@ -84,13 +87,16 @@ const LoginComponent = () => {
         <Card className={panelCard}>
           <div className="d-flex justify-between">
             <div className="text-left">
-              <p className={subtitle}>{translate("login_subtitle")}</p>
+              <p className={subtitle}>
+                {translate("login_subtitle")}
+                <span className={subtitleSite}> {translate("login_site")}</span>
+              </p>
               <h1 className={title}>{translate("sign_title")}</h1>
             </div>
             <div className="text-left">
-              <span className={accountSpan}>Have an Account ?</span>
-              <Link to="/auth/login" className={accountSign}>
-                Sign in
+              <span className={accountSpan}>{translate("haveAccount")}</span>
+              <Link to={Routes.login} className={accountSign}>
+                {translate("signIn")}
               </Link>
             </div>
           </div>
@@ -104,9 +110,7 @@ const LoginComponent = () => {
               rules={rules.email}
               name="email"
               label={
-                <span className={inputLabel}>
-                  Enter your username or email address
-                </span>
+                <span className={inputLabel}>{translate("userEmail")}</span>
               }
             >
               <Input
@@ -114,24 +118,22 @@ const LoginComponent = () => {
                 placeholder="Enter your username or email address"
               />
             </Form.Item>
-            <Form.Item style={{}}>
+            <Form.Item>
               <Form.Item
                 rules={rules.username}
                 name="username"
-                label={<span className={inputLabel}>User name</span>}
-                style={{
-                  display: "inline-block",
-                  width: "calc(50% - 10px)",
-                  marginRight: "19px",
-                }}
+                label={
+                  <span className={inputLabel}>{translate("userName")}</span>
+                }
+                className={`${formField50} ${margin19}`}
               >
                 <Input className={inputClass50} placeholder="User name"></Input>
               </Form.Item>
               <Form.Item
                 rules={rules.phone}
                 name="phone"
-                label={<span className={inputLabel}>Contact Number</span>}
-                style={{ display: "inline-block", width: "calc(50% - 10px)" }}
+                label={<span className={inputLabel}>{translate("phone")}</span>}
+                className={formField50}
               >
                 <Input
                   className={inputClass50}
@@ -143,7 +145,9 @@ const LoginComponent = () => {
               className={marginNone}
               rules={rules.password}
               name="password"
-              label={<span className={inputLabel}>Enter your Password</span>}
+              label={
+                <span className={inputLabel}>{translate("password")}</span>
+              }
             >
               <Input
                 type="password"

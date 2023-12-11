@@ -12,4 +12,7 @@ export default defineConfig({
       include: ["./src/**/*.ts", "./src/**/*.tsx"],
     }),
   ],
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
+  },
 });

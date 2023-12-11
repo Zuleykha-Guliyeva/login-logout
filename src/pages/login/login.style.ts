@@ -6,7 +6,6 @@ import { breakpoint } from "../../assets/styles/abstracts/mixins";
 
 const styles = {
   page: {
-    height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -31,6 +30,26 @@ const styles = {
     lineHeight: rem(30),
     margin: "0",
     [breakpoint(768)]: { fontSize: rem(16), fontWeight: 400 },
+  },
+  subtitleSite: {
+    fontFamily: fonts.font,
+    fontWeight: 400,
+    fontSize: rem(20),
+    lineHeight: rem(30),
+    margin: "0",
+    [breakpoint(768)]: {
+      fontSize: rem(16),
+      fontWeight: 400,
+      color: colors.orangeButtonColor,
+    },
+  },
+  eyeIcon: {
+    position: "absolute",
+    top: "50%",
+    right: rem(62),
+    fontSize: rem(22),
+    color: colors.orColor,
+    [breakpoint(768)]: { display: "none" },
   },
   panel: {
     width: rem(539),
@@ -65,17 +84,45 @@ const styles = {
     height: rem(55),
     borderRadius: rem(9),
     marginBottom: rem(11),
+    transition: "border-color 0.3s ease-in-out",
+    "&:focus": {
+      border: `1px solid #4285F4`,
+      boxShadow: "0px 4px 4px 0px #00000040",
+    },
+    [breakpoint(768)]: {
+      "&:focus": {
+        border: `1px solid ${colors.orangeBackground}`,
+        boxShadow: "0px 4px 4px 0px #00000040",
+      },
+      "&:hover": {
+        border: `1px solid ${colors.orangeBackground}`,
+      },
+    },
   },
   inputClass50: {
     height: rem(55),
     borderRadius: rem(9),
+    transition: "border-color 0.3s ease-in-out",
+    "&:focus": {
+      border: `1px solid #4285F4`,
+      boxShadow: "0px 4px 4px 0px #00000040",
+    },
+    [breakpoint(768)]: {
+      "&:focus": {
+        border: `1px solid ${colors.orangeBackground}`,
+        boxShadow: "0px 4px 4px 0px #00000040",
+      },
+      "&:hover": {
+        border: `1px solid ${colors.orangeBackground}`,
+      },
+    },
   },
   forgotClass: {
     fontSize: rem(13),
     fontFamily: fonts.font,
     fontWeight: 400,
     linHeight: rem(19.5),
-    color: colors.orangeButtonColor,
+    color: colors.forgotColor,
     display: "inline-block",
     marginBottom: rem(33),
   },
@@ -94,7 +141,7 @@ const styles = {
     [breakpoint(768)]: { display: "none" },
   },
   signInButtonMobile: {
-    display:"none",
+    display: "none",
     [breakpoint(768)]: { display: "block" },
   },
   signUpButtonColor: {
@@ -114,5 +161,3 @@ const styles = {
 };
 
 export const useLoginStyles = createUseStyles(styles);
-
-

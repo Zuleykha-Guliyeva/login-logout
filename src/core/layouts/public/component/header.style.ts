@@ -1,4 +1,4 @@
-import { rem } from "../../../assets/styles/abstracts/functions";
+import { rem } from "../../../../assets/styles/abstracts/functions";
 import { createUseStyles } from "react-jss";
 
 const style = {
